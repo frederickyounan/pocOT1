@@ -1,32 +1,11 @@
-function setCookie(name,value,days) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-}
-function getCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
-    return null;
-}
-
-setCookie("user_email","bobthegreat@gmail.com",30); //set "user_email" cookie, expires in 30 days
-var userEmail=getCookie("user_email");//"bobthegreat@gmail.com"
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Example</title>
-    </head>
-    <body>
-        <p>This is an example of a simple HTML page with one paragraph.</p>
-    </body>
-</html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poc3</title>
+  </head>
+  <body>
+    <h1>Ici je vais ajouter 2 cookies qui s'appellent Cookie1 et Cookie2! Ensuite on va scanner avec OT, ensuite on va lui dire de bloquer Cookie2</h1>
+<script> 
+document.cookie = "cookie1=Nepasbloquer";
+document.cookie = "cookie2=ABloquer";      
+</script> 
+</body></html>
